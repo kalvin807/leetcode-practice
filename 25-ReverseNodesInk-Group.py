@@ -20,7 +20,7 @@ class Solution:
                     temp, cur.next = cur.next, pre
                     pre, cur = cur, temp
                 # Link section head and tail
-                group_prev.next = r # pre is the original next node, because line 20 will advance 1 more step
+                group_prev.next = pre # pre is the original next node, because line 20 will advance 1 more step
                 group_prev = l # l now become the tail
                 l = r # r is the next node
             else:
