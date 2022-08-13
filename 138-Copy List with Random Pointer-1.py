@@ -1,17 +1,33 @@
-import collections
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):
+        self.val = int(x)
+        self.next = next
+        self.random = random
+"""
+
 class Solution:
-    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        counter = collections.Counter(nums)
-        freq_map = collections.defaultdict(list)
-        for n, cnt in counter.items():
-            freq_map[cnt].append(n)
+    def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
+        if not head:
+            return None
         
-        topK = []
-        for freq in range(len(nums), -1, -1):
-            if freq in freq_map:
-                topK += freq_map[freq]
-            if k == len(topK):
-                break
-        return topK
-    # Time complexity = O(n)
-    # Space complexity = O(n)
+        dummy = Node(0)
+        memo = {None: None}
+        prev = dummy
+        origin = head
+        while origin:
+            clone = Node(origin.val)
+            prev.next = clone
+            memo[origin] = clone
+            origin = origin.next
+            prev = clone
+        
+        clone = dummy.next
+        origin = head
+        while origin and clone:
+            clone.random = memo[origin.random]
+            clone = clone.next
+            origin = origin.next
+        
+        return dummy.next
