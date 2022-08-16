@@ -1,17 +1,18 @@
 # leetcode-practice
 
-# Abbr 
+# Abbr
+
 ```
 Algo
 ====
 BS - BinarySearch
-DP - DyanmicProgramming
+DP - Dynamic Programming
 TP - TwoPointer
 BFS - Breath First Search
 DFS - Depth First Search
 S - Sort (will name it if it is a special sort, eg quickSort)
 MATH - Math
-DC - Divide and Conqure
+DC - Divide and Conquer
 SW - Sliding Window
 
 Data Structure
